@@ -1,18 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SignUp from "../SignUp/SignUp";
 import Main from "../Main/Main";
 import MyButton from "../Components/MyButton";
 import "./Login.css";
 const Login = () => {
+  const temp = {
+    id: "Sincere@april.biz",
+    pw: "Bret",
+  };
   const navigate = useNavigate();
+  const [idInput, setIdInput] = useState("");
+  const [pwInput, setPwInput] = useState("");
+
+  const [getInfo, setGetInfo] = useState([]);
 
   const goToMain = () => {
-    navigate("/Main");
+    navigate("/Main", { state: { ...getInfo } });
   };
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        setGetInfo(res);
+      });
+  }, []);
+  const userinfo = {
+    id: "",
+    pw: "",
+  };
+
+  function checkUserInfo() {
+    if (idInput === getInfo[0].email && pwInput === getInfo[0].username) {
+      userinfo.id = getInfo[0].email;
+      userinfo.pw = getInfo[0].username;
+      console.log(userinfo);
+      goToMain();
+    } else {
+      alert("아이디 비밀번호를 확인해주세요.");
+    }
+  }
+
   return (
     <div className="login-wrapper">
-      <div>로그인페이지입니다.</div>
+      <div className="title">로그인페이지입니다.</div>
       <div className="login-input-container">
         <div className="email">
           <label htmlFor="loginId">ID</label>
@@ -21,6 +55,8 @@ const Login = () => {
             id="loginId"
             placeholder="Username@gmail.com"
             type="text"
+            value={idInput}
+            onChange={(e) => setIdInput(e.target.value)}
           />
         </div>
         <div className="password">
@@ -30,12 +66,14 @@ const Login = () => {
             id="loginPw"
             placeholder="password"
             type="text"
+            value={pwInput}
+            onChange={(e) => setPwInput(e.target.value)}
           />
         </div>
       </div>
       <div className="login-button-container">
         <MyButton text={"Back"} onClick={() => navigate(-1)} />
-        <MyButton text={"Login!"} onClick={goToMain} />
+        <MyButton text={"Login!"} onClick={checkUserInfo} />
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
 import Main from "../Main/Main";
 import MyButton from "../Components/MyButton";
+import "./Landing.css";
 import {
   Route,
   Link,
@@ -23,7 +24,7 @@ const Landing = () => {
 
   return (
     <div>
-      <div>안녕하세요. 랜딩페이지입니다.</div>
+      <div className="landing-title title">어서오세요!</div>
       <MyButton text={"Login"} onClick={goToLogIn} />
       <MyButton text={"Sign Up"} onClick={goToSignUp} />
     </div>

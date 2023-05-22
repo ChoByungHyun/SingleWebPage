@@ -2,6 +2,7 @@ import Landing from "./Pages/Landing/Landing";
 import Login from "./Pages/Login/Login";
 import SignUp from "./Pages/SignUp/SignUp";
 import Main from "./Pages/Main/Main";
+import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {

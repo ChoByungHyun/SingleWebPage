@@ -7,7 +7,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <div>회원가입페이지입니다.</div>
+      <div>SIGN UP</div>
       <MyButton text={"Back"} onClick={() => navigate(-1)} />
     </div>
   );

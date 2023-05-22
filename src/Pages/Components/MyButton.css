@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700);
+
 .MyButton {
   display: block;
   position: relative;
@@ -13,13 +14,18 @@
   color: #fff;
   border-radius: 5px;
   transition: all 0.2s;
-  background: #5dc8cd;
-  box-shadow: 0px 5px 0px 0px #1e8185;
+  background: #b7becc;
+  box-shadow: 0px 5px 0px 0px #9ca3b0;
   font-family: "Josefin Slab", serif;
   border: none;
 }
+
 .MyButton:hover {
-  box-shadow: 0px 0px 0px 0px #1e8185;
+  box-shadow: 0px 0px 0px 0px #9ca3b0;
   margin-top: 15px;
   margin-bottom: 5px;
+}
+
+.MyButton:active {
+  background: #787c84;
 }

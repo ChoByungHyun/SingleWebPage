@@ -1,13 +1,4 @@
 .login-wrapper {
-  /* width: 90vw;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  justify-content: center;
-  align-items: center;
-  gap: 70px;
-  margin-top: 50px; */
-
   background: #f1f7fe;
   padding: 2em;
   display: flex;
@@ -15,21 +6,6 @@
   border-radius: 30px;
   box-shadow: 0 0 2em #e6e9f9;
   gap: 2em;
-  /* height: 100vh; */
-}
-
-
-body {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  overflow-y: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #dde5f4;
-  height: 100vh;
 }
 
 
@@ -65,18 +41,3 @@ body {
   outline: none;
   border: none;
 }
-
-/* .email .login-input::-moz-placeholder {
-  color: black;
-  font-size: 0.9em;
-}
-
-.email .login-input:-ms-input-placeholder {
-  color: black;
-  font-size: 0.9em;
-}
-
-.email .login-input::placeholder {
-  color: black;
-  font-size: 0.9em;
-} */

@@ -10,6 +10,7 @@ const Login = () => {
     pw: "Bret",
   };
   const navigate = useNavigate();
+
   const [idInput, setIdInput] = useState("");
   const [pwInput, setPwInput] = useState("");
 
@@ -28,16 +29,9 @@ const Login = () => {
         setGetInfo(res);
       });
   }, []);
-  const userinfo = {
-    id: "",
-    pw: "",
-  };
 
   function checkUserInfo() {
     if (idInput === getInfo[0].email && pwInput === getInfo[0].username) {
-      userinfo.id = getInfo[0].email;
-      userinfo.pw = getInfo[0].username;
-      console.log(userinfo);
       goToMain();
     } else {
       alert("아이디 비밀번호를 확인해주세요.");
@@ -46,7 +40,7 @@ const Login = () => {
 
   return (
     <div className="login-wrapper">
-      <div className="title">로그인페이지입니다.</div>
+      <div className="title">LOGIN</div>
       <div className="login-input-container">
         <div className="email">
           <label htmlFor="loginId">ID</label>
@@ -73,7 +67,7 @@ const Login = () => {
       </div>
       <div className="login-button-container">
         <MyButton text={"Back"} onClick={() => navigate(-1)} />
-        <MyButton text={"Login!"} onClick={checkUserInfo} />
+        <MyButton text={"Login"} onClick={checkUserInfo} />
       </div>
     </div>
   );

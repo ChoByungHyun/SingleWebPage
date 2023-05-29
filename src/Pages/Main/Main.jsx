@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
 import "./Main.css";
 import MyButton from "../Components/MyButton";
 import { useNavigate, useLocation } from "react-router-dom";
 import MyHeader from "../Components/MyHeader";
+import MemoList from "../Components/Memo/MemoComponent";
+import Portal from "../../Common/Portal/Portal";
+import Modal from "../../Common/Portal/Modal";
 
 const Main = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [modalOn, setModalOn] = useState(false);
+
+  const handleModal = () => {
+    setModalOn(!modalOn);
+  };
   const goToLogin = () => {
     navigate("/Login");
   };
@@ -20,13 +28,14 @@ const Main = () => {
         leftChild={<MyButton text={"Back"} onClick={() => navigate(-1)} />}
         rightChild={
           <div className="main-RightChild">
-            <p>안녕하세요! {location.state[0].name}님! </p>
+            <p>안녕하세요! </p>
             <MyButton text={"LogOut"} onClick={() => goToLogin()} />
           </div>
         }
       />
       <div>
-        <p>당신의 전화번호는 {location.state[0].phone.slice(0, 14)}입니다. </p>
+        <MyButton text={"메모열기"} onClick={handleModal} />
+        <Portal>{modalOn && <Modal onClose={handleModal} />}</Portal>
       </div>
     </div>
   );

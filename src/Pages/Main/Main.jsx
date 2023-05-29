@@ -8,15 +8,19 @@ import MyHeader from "../Components/MyHeader";
 import MemoList from "../Components/Memo/MemoComponent";
 import Portal from "../../Common/Portal/Portal";
 import Modal from "../../Common/Portal/Modal";
+import { useDispatch, useSelector } from "react-redux";
+import { openModal, closeModal } from "../../module/modalToggle";
 
 const Main = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const [modalOn, setModalOn] = useState(false);
 
-  const handleModal = () => {
-    setModalOn(!modalOn);
-  };
+  const modalState = useSelector((state) => {
+    return state.modalToggle.modalBtn;
+  });
+
+  const dispatch = useDispatch();
+  const onOpenModal = () => dispatch(openModal());
+
   const goToLogin = () => {
     navigate("/Login");
   };
@@ -34,8 +38,8 @@ const Main = () => {
         }
       />
       <div>
-        <MyButton text={"메모열기"} onClick={handleModal} />
-        <Portal>{modalOn && <Modal onClose={handleModal} />}</Portal>
+        <MyButton text={"메모장 열기"} onClick={onOpenModal} />
+        <Portal>{modalState ? <Modal /> : <div></div>}</Portal>
       </div>
     </div>
   );

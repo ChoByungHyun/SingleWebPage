@@ -10,7 +10,6 @@ const Modal = ({ onClose }) => {
   return (
     <Background>
       <Content>
-        {/* <MyButton text={"닫기"} onClick={onClose} /> */}
         <MemoComponent onClose={onClose} />
       </Content>
     </Background>
@@ -28,7 +27,7 @@ const Background = styled.div`
   position: fixed;
   left: 0;
   top: 0;
-  text-align: center;
+  /* text-align: center; */
   background-color: rgba(0, 0, 0, 0.8);
 `;
 

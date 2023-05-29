@@ -20,6 +20,10 @@
   border: none;
 }
 
+.MyButton_Width_Full {
+  width: 100%;
+}
+
 .MyButton:hover {
   box-shadow: 0px 0px 0px 0px #9ca3b0;
   margin-top: 15px;
